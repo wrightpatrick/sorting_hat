@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Student list
+{% endblock %}
+
+{% block content %}
+<div>
+    <a href="{% url 'student_register' %}">Register a student to your class</a>
+</div>
+
+<h2>Student list</h2>
+<div>Here is the list of students</div>
+    {% for student in students %}
+        <div>
+            <a href="{% url 'student_detail' student.id %}">
+                {{student.first_name}} {{ student.last_name }}
+            </a>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
